@@ -1,1 +1,2 @@
 # solving_equations
+редактирование файла
