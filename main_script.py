@@ -77,3 +77,4 @@ if cash:
 
 print(coef_x_left, coef_free_left)
 print(coef_x_right, coef_free_right)
+# plus and minus
