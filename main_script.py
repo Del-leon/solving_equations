@@ -1,5 +1,5 @@
 input_str = input("Введите уравнение: ").replace(" ", "")
-print(f"Введенное уравнение: {input_str}")
+print(f"Уравнение: {input_str}")
 
 coef_x_left = 0
 coef_free_left = 0
@@ -52,13 +52,13 @@ for i in input_str:
                     coef_free_left += int(cash)
                 elif last_operation == "-":
                     coef_free_left -= int(cash)
-        
+
         last_operation = i
         cash = ""
 
     elif i in "0123456789":
         cash += i
-    
+
     elif i == "=":
         if last_operation == "+":
             coef_free_left += int(cash)
