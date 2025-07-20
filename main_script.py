@@ -1,5 +1,5 @@
 input_str = input("Введите уравнение: ")
-print(f"Введенное уравнение: {input_str}")
+print(f"Уравнение: {input_str}")
 
 coef_x_left = []
 coef_free_left = []
