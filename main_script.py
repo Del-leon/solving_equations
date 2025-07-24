@@ -75,6 +75,7 @@ if cash:
     elif last_operation == "-":
         coef_free_right -= int(cash)
 
-print(coef_x_left, coef_free_left)
-print(coef_x_right, coef_free_right)
-# plus and minus
+print(f"Сумма коэффициентов при х слева{coef_x_left}")
+print(f"Сумма коэффициентов при х справа{coef_x_right}")
+print(f"Сумма свободных коэффициентов слева{coef_free_left}")
+print(f"Сумма свободных коэффициентов справа{coef_free_right}")
