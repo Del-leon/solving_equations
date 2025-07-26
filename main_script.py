@@ -1,79 +1,17 @@
+import Operations
+
 input_str = input("Введите уравнение: ").replace(" ", "")
 print(f"Уравнение: {input_str}")
 
-coef_x_left = 0
-coef_free_left = 0
+input_str = input_str.split("=")
+uravn_left = input_str[0]
+print(uravn_left)
+uravn_right = input_str[1]
+print(uravn_right)
 
-next_side = False
-last_operation = ""
+coef_x_left, coef_free_left = Operations.uravn_plus_and_minus(uravn_left)
 
-coef_x_right = 0
-coef_free_right = 0
-
-cash = ""
-for i in input_str:
-
-    if i == "x":
-        if next_side and (not(last_operation) or last_operation == "+"):
-            if not cash:
-                coef_x_right += 1
-            else:
-                coef_x_right += int(cash)
-
-        elif next_side and last_operation == "-":
-            if not cash:
-                coef_x_right -= 1
-            else:
-                coef_x_right -= int(cash)
-
-        elif not(next_side) and (not(last_operation) or last_operation == "+"):
-            if not cash:
-                coef_x_left += 1
-            else:
-                coef_x_left += int(cash)
-
-        elif not(next_side) and last_operation == "-":
-            if not cash:
-                coef_x_left -= 1
-            else:
-                coef_x_left -= int(cash)
-
-        cash = ""
-
-    elif i in "+-":
-        if cash:
-            if next_side and last_operation:
-                if last_operation == "+":
-                    coef_free_right += int(cash)
-                elif last_operation == "-":
-                    coef_free_right -= int(cash)
-            elif last_operation:
-                if last_operation == "+":
-                    coef_free_left += int(cash)
-                elif last_operation == "-":
-                    coef_free_left -= int(cash)
-
-        last_operation = i
-        cash = ""
-
-    elif i in "0123456789":
-        cash += i
-
-    elif i == "=":
-        if last_operation == "+":
-            coef_free_left += int(cash)
-        elif last_operation == "-":
-            coef_free_left -= int(cash)
-
-        next_side = True
-        cash = ""
-        last_operation = ""
-
-if cash:
-    if last_operation == "+":
-        coef_free_right += int(cash)
-    elif last_operation == "-":
-        coef_free_right -= int(cash)
+coef_x_right, coef_free_right = Operations.uravn_plus_and_minus(uravn_right)
 
 print(f"Сумма коэффициентов при х слева{coef_x_left}")
 print(f"Сумма коэффициентов при х справа{coef_x_right}")
