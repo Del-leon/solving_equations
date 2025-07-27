@@ -8,7 +8,9 @@ uravn_left, uravn_right = input_str
 print(uravn_left)
 print(uravn_right)
 
-coef_x_left, coef_free_left, coef_x_right, coef_free_right = [*uravn_plus_and_minus(uravn_left), *uravn_plus_and_minus(uravn_right)]
+coef_x_left, coef_free_left = uravn_plus_and_minus(uravn_left)
+
+coef_x_right, coef_free_right = uravn_plus_and_minus(uravn_right)
 
 
 print(f"Сумма коэффициентов при х слева{coef_x_left}")
